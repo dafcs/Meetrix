@@ -130,4 +130,8 @@ public class Event {
     public void setMembers(List<Member> members) {
         this.members = members;
     }
+
+    public void addMember(Member member){
+        members.add(member);
+    }
 }

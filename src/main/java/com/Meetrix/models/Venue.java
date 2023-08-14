@@ -42,8 +42,7 @@ public class Venue {
     public Venue() {
     }
 
-    public Venue(Long id, String name, VenueType type, List<DietaryRequirement> dietaryOptions, int capacity, int ageMinimum, PriceRange priceRange) {
-        this.id = id;
+    public Venue(String name, VenueType type, List<DietaryRequirement> dietaryOptions, int capacity, int ageMinimum, PriceRange priceRange) {
         this.name = name;
         this.venueType = type;
         this.dietaryOptions = dietaryOptions;
