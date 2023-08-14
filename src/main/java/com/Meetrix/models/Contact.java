@@ -1,4 +1,4 @@
-package com.Meetrix.models.enums;
+package com.Meetrix.models;
 
 import javax.persistence.*;
 

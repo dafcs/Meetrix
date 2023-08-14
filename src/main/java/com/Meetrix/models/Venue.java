@@ -3,7 +3,6 @@ package com.Meetrix.models;
 import com.Meetrix.models.enums.DietaryRequirement;
 import com.Meetrix.models.enums.PriceRange;
 import com.Meetrix.models.enums.VenueType;
-import com.Meetrix.models.enums.Contact;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,6 +34,9 @@ public class Venue {
     private PriceRange priceRange;
 //    @Column(name = "contact")
 //    private Contact contact;
+
+    @OneToMany(mappedBy = "venue")
+    private List<Event> events;
 
 
     public Venue() {

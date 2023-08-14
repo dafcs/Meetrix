@@ -1,6 +1,8 @@
 package com.Meetrix.models;
 
 import com.Meetrix.models.enums.DietaryRequirement;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -25,6 +27,29 @@ public class Member {
     @ElementCollection
     private List<DietaryRequirement> dietaryRequirements;
 
+    @ManyToMany
+    @JsonIgnoreProperties({"members"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "members_events",
+            joinColumns = { @JoinColumn(name = "member_id",
+            nullable = false,
+            updatable = false)
+            },
+            inverseJoinColumns = { @JoinColumn(
+                    name = "event_id",
+                    nullable = false,
+                    updatable = false)
+            })
+    private List<Event> events;
+
+    public List<Event> getEvent() {
+        return events;
+    }
+
+    public void setEvent(List<Event> events) {
+        this.events = events;
+    }
 
 
     public Member() {
